@@ -33,18 +33,19 @@ function shuffle(src) {
 /**********************************************
  * YOUR CODE BELOW
  **********************************************/
-import React, { useState, useEffect } from "react";
-import './App.css'; // Import your CSS file
+import React, { useState, useEffect } from "react"; 
+// import usestate and useeffect from react
+import './App.css'; // Import css file here...
 
 const App = () => {
   // Array of words for the game
-  const words = ["apple", "banana", "cherry", "grape", "lemon", "melon", "orange", "peach", "berry", "kiwi"];
+  const words = ["apple", "Watermelon", "cherry", "grape", "lemon", "melon", "orange", "Mango", "berry", "Candy"];
 
-  // Maximum allowed strikes and passes
+  // Maximum allowed strikes and passes is 3
   const MAX_STRIKES = 3;
   const MAX_PASSES = 3;
 
-  // State hooks with default values either from local storage or defaults
+  // use State hooks with default values either from local storage or predefined(default)
   const [score, setScore] = useState(Number(localStorage.getItem("score")) || 0);
   const [strikes, setStrikes] = useState(Number(localStorage.getItem("strikes")) || 0);
   const [passes, setPasses] = useState(Number(localStorage.getItem("passes")) || MAX_PASSES);
@@ -53,14 +54,14 @@ const App = () => {
   const [guess, setGuess] = useState("");
   const [message, setMessage] = useState("");
 
-  // Scramble the current word based on the index
+  // Scramble the current word based on the index with shuffle function
   useEffect(() => {
     if (words[currentIndex]) {
       setScrambledWord(shuffle(words[currentIndex]));
     }
   }, [currentIndex]);
 
-  // Store game state in local storage
+  // use local storage to store score, strikes passes ....
   useEffect(() => {
     localStorage.setItem("score", score);
     localStorage.setItem("strikes", strikes);
@@ -73,7 +74,7 @@ const App = () => {
     setGuess(event.target.value);
 };
 
-  // Handle guess submission
+  // this will Handle guess submission
   const handleGuess = () => {
     if (guess.toLowerCase() === words[currentIndex].toLowerCase()) {
       setScore(score + 1);
@@ -95,7 +96,7 @@ const App = () => {
     setGuess("");
   };
 
-  // Handle pass functionality
+  // this Handle pass functionality
   const handlePass = () => {
     if (passes > 0 && currentIndex < words.length - 1) {
       setPasses(passes - 1);
@@ -108,7 +109,8 @@ const App = () => {
     }
   };
 
-  // Reset the game completely
+  // Reset functional will reset the game completely 
+  // use arrow fucntion 
   const resetGame = () => {
     setScore(0);
     setStrikes(0);
@@ -120,15 +122,16 @@ const App = () => {
     setScrambledWord(shuffle(words[0])); // Start with the first word scrambled
   };
 
-  // Enter key trigger for guessing
+  // here enter key trigger is for guessing
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleGuess();
     }
   };
-  
+
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
+      {/* inline css */}
       <h1>Scramble Game</h1>
       <p>Score: {score}</p>
       <p>Strikes: {strikes}/{MAX_STRIKES}</p>
