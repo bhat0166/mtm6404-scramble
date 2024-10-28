@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../public/images/backgroundImg.png);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#root {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.88); /* 50% opacity */
+  box-shadow: 0 4px 8px rgba(21, 157, 32, 0.9);
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  color: #146b17;
+  font-size: 2em;
+  margin: 0 0 20px;
+}
+
+p {
+  font-size: 1.0em;
+  color: #d2d2d2;
+}
+
+button {
+  background-color: #146b17;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #F51E25;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1em;
+  width: 80%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.message {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #146b17;
+  margin-top: 10px;
+}
+
+.game-over {
+  color: #d9534f;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}
